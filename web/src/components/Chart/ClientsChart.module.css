@@ -1,0 +1,40 @@
+.card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 24px 16px 16px;
+}
+
+/* Horizontal scroll only; `overflow-x: auto` alone would make the y axis scrollable too. */
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.plot {
+  min-width: 720px;
+  height: 358px;
+}
+
+/* Recharts' <svg> is inline, so it sits on the text baseline and leaves a ~5px descender gap below it. */
+.plot :global(.recharts-surface) { display: block; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--content-secondary);
+}
+
+.legendItem { display: flex; align-items: center; gap: 4px; }
+
+.swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}

@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 35px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.loading { display: flex; flex-direction: column; gap: 16px; }
+
+.skeletonChart,
+.skeletonTable {
+  border-radius: 8px;
+  background: linear-gradient(90deg, #fff 25%, #f1eee3 50%, #fff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+.skeletonChart { height: 430px; }
+.skeletonTable { height: 224px; }
+
+@keyframes shimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .skeletonChart, .skeletonTable { animation: none; }
+}
+
+.error {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 24px 16px;
+}
+.error p { margin: 0 0 12px; }
+.error button {
+  padding: 8px 16px;
+  border: 1px solid var(--line-dotted);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+}
+.error button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Let the cards shrink to the viewport so their inner scrollers scroll instead of widening the page. */
+.page > * { min-width: 0; }
